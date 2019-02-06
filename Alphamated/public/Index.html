@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alphamated</title>
+</head>
+<body>
+    <div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <!--TODO ////Break header out into component//////////////////////////////////////////////////////////////////////////////////////////-->
+
+        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+            <div class="mdl-layout__header-row portfolio-logo-row">
+                <div class="logo-container">
+                    <div class="logo-area-background">
+                        <div class="portfolio-logo"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                    <router-link class="mdl-navigation__link" to="/home" @click.native="hideMenu">Home</router-link>
+                    <router-link class="mdl-navigation__link" to="/about" @click.native="hideMenu">About</router-link>
+                    <router-link class="mdl-navigation__link" to="/gallery" @click.native="hideMenu">Gallery</router-link>
+                    <router-link class="mdl-navigation__link" to="/contact" @click.native="hideMenu">Contact</router-link>
+
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+            <span class="mdl-layout__title">Alphamated</span>
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                <router-link class="mdl-navigation__link" to="/home" @click.native="hideMenu">Home</router-link>
+                <router-link class="mdl-navigation__link" to="/about" @click.native="hideMenu">About</router-link>
+                <router-link class="mdl-navigation__link" to="/gallery" @click.native="hideMenu">Gallery</router-link>
+                <router-link class="mdl-navigation__link" to="/contact" @click.native="hideMenu">Contact</router-link>
+
+            </nav>
+        </div>
+        <!--TODO NEW HEADER//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+        <main class="mdl-layout__content">
+            <div class="page-content main">
+                <router-view></router-view>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

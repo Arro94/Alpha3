@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alphamated</title>
+    <style>
+        @import '/stylesheets/galleryStyle.css';
+        @import '/stylesheets/style.css';
+
+    </style>
+    <script>
+        function hideMenu() {
+            document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible')
+            document.getElementsByClassName('mdl-layout__obfuscator')[0].classList.remove('is-visible')
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <script>
+        // todo GalleryScripts<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        function toggleImage(el) {
+            var elements = document.getElementsByClassName('wrapper');
+            let openThis = true;
+            if (el.classList.contains('open')) {
+                openThis = false;
+            }
+            for (let element of elements) {
+                if (element.classList.contains('open')) {
+                    element.classList.remove('open');
+                    element.style.setProperty('z-index',0);
+                }
+            }
+            if(openThis) {
+                el.classList.add('open');
+                el.style.setProperty('z-index',10);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+        <div class="mdl-layout__header-row portfolio-logo-row">
+            <div class="logo-container">
+                <div class="logo-area-background">
+                    <div class="portfolio-logo"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                <a href="Home.html" class="mdl-navigation__link" onclick="hideMenu()">Home</a>
+                <a href="About.html" class="mdl-navigation__link" onclick="hideMenu()">About</a>
+                <a href="Gallery.html" class="mdl-navigation__link" onclick="hideMenu()">Gallery</a>
+                <a href="Contact.html" class="mdl-navigation__link" onclick="hideMenu()">Contact</a>
+
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <span class="mdl-layout__title">Alphamated</span>
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a href="Home.html" class="mdl-navigation__link" onclick="hideMenu()">Home</a>
+            <a href="About.html" class="mdl-navigation__link" onclick="hideMenu()">About</a>
+            <a href="Gallery.html" class="mdl-navigation__link" onclick="hideMenu()">Gallery</a>
+            <a href="Contact.html" class="mdl-navigation__link" onclick="hideMenu()">Contact</a>
+
+        </nav>
+    </div>
+
+    <main class="mdl-layout__content main">
+        <div class="mdl-grid portfolio-max-width">
+            <div class="tempSetHeight mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                <!--todo  add images <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="pic-container">
+                            <div class="parent">
+                                <div class="wrapper thumb-1" onclick="toggleImage(this)">
+                                    <div class="content">
+                                        <div class="img"></div>
+                                        <div class="text">
+                                            <div class="line title"></div>
+                                            <div class="line subtitle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pic-container">
+                            <div class="parent">
+                                <div class="wrapper thumb-2" onclick="toggleImage(this)">
+                                    <div class="content">
+                                        <div class="img"></div>
+                                        <div class="text">
+                                            <div class="line title"></div>
+                                            <div class="line subtitle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pic-container">
+                            <div class="parent">
+                                <div class="wrapper thumb-3" onclick="toggleImage(this)">
+                                    <div class="content">
+                                        <div class="img"></div>
+                                        <div class="text">
+                                            <div class="line title">Title</div>
+                                            <div class="line subtitle">infoooooo</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--todo  add images <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+            </div>
+        </div>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">Alphamated</div>
+            </div>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+</div>
+</body>
+</html>

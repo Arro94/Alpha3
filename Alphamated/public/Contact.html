@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alphamated</title>
+    <style>
+        @import '/Alphamated/public/stylesheets/style.css';
+    </style>
+    <script>
+        function hideMenu() {
+            document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible')
+            document.getElementsByClassName('mdl-layout__obfuscator')[0].classList.remove('is-visible')
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+<body>
+<div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+        <div class="mdl-layout__header-row portfolio-logo-row">
+            <div class="logo-container">
+                <div class="logo-area-background">
+                    <div class="portfolio-logo"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                <a href="Home.html" class="mdl-navigation__link" onclick="hideMenu()">Home</a>
+                <a href="About.html" class="mdl-navigation__link" onclick="hideMenu()">About</a>
+                <a href="Gallery.html" class="mdl-navigation__link" onclick="hideMenu()">Gallery</a>
+                <a href="Contact.html" class="mdl-navigation__link" onclick="hideMenu()">Contact</a>
+
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <span class="mdl-layout__title">Alphamated</span>
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a href="Home.html" class="mdl-navigation__link" onclick="hideMenu()">Home</a>
+            <a href="About.html" class="mdl-navigation__link" onclick="hideMenu()">About</a>
+            <a href="Gallery.html" class="mdl-navigation__link" onclick="hideMenu()">Gallery</a>
+            <a href="Contact.html" class="mdl-navigation__link" onclick="hideMenu()">Contact</a>
+
+        </nav>
+    </div>
+
+    <main class="mdl-layout__content main">
+            <div class="mdl-grid portfolio-max-width">
+                <div class="mdl-layout-spacer"></div>
+
+                <div class="mdl-card mdl-shadow--2dp my-subscribe-card-size">
+                    <form @submit.prevent="submitSubscription">
+                        <div class="mdl-card__title mdl-color--primary">
+                            <h2 class="mdl-card__title-text mdl-color-text--white">Subscribe:</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <label for="email" class="mdl-textfield__label">Email Address:</label>
+                                <input ref="txtEmail" name="email" @input="checkEmailValidator" id="email" class="mdl-textfield__input"
+                                       type="email">
+                                <span class="mdl-textfield__error">Please enter a valid email address.</span>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <label for="comment" class="mdl-textfield__label">Comment:</label>
+                                <input ref="txtComment" name="comment" id="comment" class="mdl-textfield__input" type="text">
+                            </div>
+
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button :disabled="submitButtonDisabled"
+                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">Alphamated</div>
+                </div>
+                <div class="mdl-mini-footer__right-section">
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+    </main>
+</div>
+</body>
+</html>
