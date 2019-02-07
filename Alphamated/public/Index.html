@@ -3,46 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <title>Alphamated</title>
+    <style>
+        @import '/stylesheets/style.css';
+    </style>
+    <script>
+        function hideMenu() {
+            document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible')
+            document.getElementsByClassName('mdl-layout__obfuscator')[0].classList.remove('is-visible')
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-    <div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <!--TODO ////Break header out into component//////////////////////////////////////////////////////////////////////////////////////////-->
+<div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
-            <div class="mdl-layout__header-row portfolio-logo-row">
-                <div class="logo-container">
-                    <div class="logo-area-background">
-                        <div class="portfolio-logo"></div>
-                    </div>
+    <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+        <div class="mdl-layout__header-row portfolio-logo-row">
+            <div class="logo-container">
+                <div class="logo-area-background">
+                    <div class="portfolio-logo"></div>
                 </div>
             </div>
-            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
-                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                    <router-link class="mdl-navigation__link" to="/home" @click.native="hideMenu">Home</router-link>
-                    <router-link class="mdl-navigation__link" to="/about" @click.native="hideMenu">About</router-link>
-                    <router-link class="mdl-navigation__link" to="/gallery" @click.native="hideMenu">Gallery</router-link>
-                    <router-link class="mdl-navigation__link" to="/contact" @click.native="hideMenu">Contact</router-link>
-
-                </nav>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-            <span class="mdl-layout__title">Alphamated</span>
+        </div>
+        <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <router-link class="mdl-navigation__link" to="/home" @click.native="hideMenu">Home</router-link>
-                <router-link class="mdl-navigation__link" to="/about" @click.native="hideMenu">About</router-link>
-                <router-link class="mdl-navigation__link" to="/gallery" @click.native="hideMenu">Gallery</router-link>
-                <router-link class="mdl-navigation__link" to="/contact" @click.native="hideMenu">Contact</router-link>
+                <a href="Index.html" class="mdl-navigation__link" onclick="hideMenu()">Home</a>
+                <a href="About.html" class="mdl-navigation__link" onclick="hideMenu()">About</a>
+                <a href="Gallery.html" class="mdl-navigation__link" onclick="hideMenu()">Gallery</a>
+                <a href="Contact.html" class="mdl-navigation__link" onclick="hideMenu()">Contact</a>
 
             </nav>
         </div>
-        <!--TODO NEW HEADER//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <span class="mdl-layout__title">Alphamated</span>
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a href="Index.html" class="mdl-navigation__link" onclick="hideMenu()">Home</a>
+            <a href="About.html" class="mdl-navigation__link" onclick="hideMenu()">About</a>
+            <a href="Gallery.html" class="mdl-navigation__link" onclick="hideMenu()">Gallery</a>
+            <a href="Contact.html" class="mdl-navigation__link" onclick="hideMenu()">Contact</a>
 
-        <main class="mdl-layout__content">
-            <div class="page-content main">
-                <router-view></router-view>
-            </div>
-        </main>
+        </nav>
     </div>
+
+    <main class="mdl-layout__content main">
+
+        <div class="mdl-grid portfolio-max-width">
+
+            <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                <div class="mdl-grid portfolio-copy">
+                    <video width="auto" height="auto" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0"
+                           data-autoplay>
+                        <source src="demo.mp4" type="video/mp4">
+                        Your browser does not support video.
+                    </video>
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">The Roller XPress</h2>
+                </div>
+                <div class="mdl-card__media">
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <strong>The world’s first machine that fully automates the process of rolling silverware into napkins!</strong>
+                </div>
+                <div class="mdl-grid portfolio-copy">
+                    <div class="mdl-cell mdl-cell--10-col mdl-card__supporting-text no-padding ">
+                        <ul>
+                            <li>10 Seconds a Roll, 250 Roll-Ups an Hour which is 5 times faster than the average person.</li>
+                            <li>Load one time and go!</li>
+                            <li>No operator required!</li>
+                            <li>Accommodate both paper and cloth napkins!</li>
+                            <li>Able to work with 95% of silverware sizes on the market today.</li>
+                            <li>Patented Technology!</li>
+                            <li>Up to 4 utensils and down to 2 utensils.</li>
+                            <li>Any combination of fork, knife and spoons.</li>
+                            <li>Banding for both paper and cloth.</li>
+                            <li>3 X 3 X 4 Feet footprint size, table top apparatus!</li>
+                            <li>NSF and UL certified.</li>
+                            <li>Stainless Steel Framework.</li>
+                            <li>Made in the USA.</li>
+                            <li>10 Year Life Cycle.</li>
+                            <li>Medium Size Restaurants spends approximately  $15,000 a year rolling silverware!</li>
+                            <li>Great for Restaurants, Hotels, Catering and Event Planning, Cruise Ships and Colleges!</li>
+                            <li>Leasing options available upon request.</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">Alphamated</div>
+            </div>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+</div>
 </body>
 </html>
