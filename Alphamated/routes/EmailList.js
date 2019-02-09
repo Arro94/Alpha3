@@ -5,8 +5,8 @@ const router = express.Router();
 const fs = require( 'fs' );
 
 router.post('/add', (req, res) => {
-    const name = req.body.name;
-    const email = req.body.email;
+    const name = req.body.txtName;
+    const email = req.body.txtEmail;
     if(!name || !email) {
         res.sendStatus(400);
         console.info('  Bad request - Request does not contain name or email');
@@ -19,7 +19,7 @@ router.post('/add', (req, res) => {
         const entry = '\n' + name + ' (' + email + ')';
         fs.appendFileSync(path, entry);
         console.info('  Added ' + name + ' (' + email + ') ' + ' to the distribution list');
-        res.sendStatus(200);
+        res.sendStatus(204);
     }
 });
 
