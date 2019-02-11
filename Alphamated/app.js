@@ -1,3 +1,4 @@
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,8 +7,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var emailListRouter = require('./routes/EmailList')
-
 var app = express();
 
 // view engine setup
@@ -22,7 +21,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/emailList', emailListRouter);
+const router = express.Router();
+const options = require ('./routes/options');
+
+const fs = require( 'fs' );
+
+router.post('/add', (req, res) => {
+    const name = req.body.txtName;
+    const email = req.body.txtEmail;
+    if(!name || !email) {
+        res.sendStatus(400);
+        console.info('  Bad request - Request does not contain name or email');
+    } else {
+        const path = req.body.filePath ?
+            options.assetsDir + req.body.filePath : options.emailList;
+        if(!fs.existsSync(path)) {
+            fs.writeFileSync(path, 'wx');
+        }
+        const entry = '\n' + name + ' (' + email + ')';
+        fs.appendFileSync(path, entry);
+        console.info('  Added ' + name + ' (' + email + ') ' + ' to the distribution list');
+        res.sendStatus(204);
+    }
+});
+app.use(router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -21,6 +21,8 @@ router.post('/add', (req, res) => {
         console.info('  Added ' + name + ' (' + email + ') ' + ' to the distribution list');
         res.sendStatus(204);
     }
+    //res.render('./../public/contact.html', { title: 'Alphamated' });
+
 });
 
 // router.delete('/delete', (req, res) => {
