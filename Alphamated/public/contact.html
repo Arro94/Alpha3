@@ -44,6 +44,7 @@
         // }
 
         function checkEmailValidator() {
+            document.getElementsByName("subButt").item(0).removeAttribute('disabled');
             let email = document.forms["subForm"]["txtEmail"].value.trim();
             if (email.checkValidity() && email.length!==0) {
                 submitButtonDisabled = false;
@@ -52,6 +53,7 @@
             }
             document.getElementsByName("subButt").disabled=submitButtonDisabled;
         }
+
 
     </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -114,7 +116,7 @@
 
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <button disabled=disabled type="submit" name="subButt" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            <button disabled type="submit" name="subButt" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                 Submit
                             </button>
                         </div>
