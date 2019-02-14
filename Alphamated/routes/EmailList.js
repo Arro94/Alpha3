@@ -4,7 +4,7 @@ const router = express.Router();
 
 const fs = require( 'fs' );
 
-router.post('/subscribeToEmail', (req, res) => {
+router.post('/add', (req, res) => {
     const name = req.body.txtName;
     const email = req.body.txtEmail;
     if(!name || !email) {
