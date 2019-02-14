@@ -26,7 +26,7 @@ const options = require ('./routes/options');
 
 const fs = require( 'fs' );
 
-router.post('/subscribeToEmail', (req, res) => {
+router.post('/', (req, res) => {
     const name = req.body.txtName;
     const email = req.body.txtEmail;
     if(!name || !email) {
@@ -44,7 +44,7 @@ router.post('/subscribeToEmail', (req, res) => {
         res.sendStatus(204);
     }
 });
-app.use(router);
+app.use('/subscribeToEmail',router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
