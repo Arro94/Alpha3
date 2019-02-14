@@ -66,5 +66,6 @@ router.post('/subscribeToEmail', (req, res) => {
     //res.render('./../public/contact.html', { title: 'Alphamated' });
 
 });
+app.use(router);
 
 module.exports = app;
