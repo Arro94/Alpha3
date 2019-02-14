@@ -22,11 +22,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 const router = express.Router();
-const options = require ('./routes/options');
 
+var options = function () {
+    this.assetsDir = __dirname + '/../assets';
+    this.emailList = this.assetsDir + '/email_list.txt';
+    this.clearListKey = 'test';
+};
 const fs = require( 'fs' );
 
-router.post('/', (req, res) => {
+router.post('/addEmail', (req, res) => {
     const name = req.body.txtName;
     const email = req.body.txtEmail;
     if(!name || !email) {
@@ -44,7 +48,7 @@ router.post('/', (req, res) => {
         res.sendStatus(204);
     }
 });
-app.use('/subscribeToEmail',router);
+app.use(router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
