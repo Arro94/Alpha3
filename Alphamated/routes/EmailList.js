@@ -19,7 +19,7 @@ router.post('/add', (req, res) => {
         const entry = '\n' + name + ' (' + email + ')';
         fs.appendFileSync(path, entry);
         console.info('  Added ' + name + ' (' + email + ') ' + ' to the distribution list');
-        res.sendStatus(204);
+        res.sendStatus(200);
     }
 });
 
