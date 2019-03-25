@@ -33,6 +33,8 @@ app.use(function(err, req, res, next) {
     message: err.message,
        error: err
   });
+    console.error(err.message);
+
 });
 
 module.exports = app;

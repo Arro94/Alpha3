@@ -4,7 +4,7 @@ const router = express.Router();
 
 const fs = require( 'fs' );
 
-router.post('/add', (req, res) => {
+router.post('/add', (req, res, next) => {
     const name = req.body.txtName;
     const email = req.body.txtEmail;
     if(!name || !email) {
@@ -19,8 +19,14 @@ router.post('/add', (req, res) => {
         const entry = '\n' + name + ' (' + email + ')';
         fs.appendFileSync(path, entry);
         console.info('  Added ' + name + ' (' + email + ') ' + ' to the distribution list');
-        res.sendStatus(204);
+
+        res.sendStatus(200);
     }
+});
+
+router.get('/add', (req, res, next) => {
+    res.redirect('http://localhost:3000/contact.html');
+   // res.sendStatus(204);
 });
 
 module.exports = router;
