@@ -13,6 +13,8 @@
         }
     </script>
     <script>
+        const form = document.getElementById("subscriptionForm");
+        form.addEventListener("submit", e=> e.preventDefault());
         // function submit(email,name) {
         //     // handle email subscription
         //     var Url = "http://localhost:3000/emailList/add";
