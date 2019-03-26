@@ -25,7 +25,7 @@ router.post('/add', (req, res, next) => {
 });
 
 router.get('/add', (req, res, next) => {
-    res.redirect('http://localhost:3000/contact.html');
+    res.redirect('http://alphamated.com/contact.html');
    // res.sendStatus(204);
 });
 

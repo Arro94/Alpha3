@@ -41,6 +41,8 @@ body {
 .wrapper.open {
   width: 330px;
   height: 330px;
+  text-align: center;
+  display: inline-block;
   transition: transform 375ms, width 375ms, height 275ms 100ms;
 }
 

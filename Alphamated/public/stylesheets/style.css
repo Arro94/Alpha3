@@ -194,6 +194,11 @@ img.article-image {
   margin: auto;
 }
 
+.contactPhoto {
+  width: 500px;
+  height: 500px;
+}
+
 footer {
   /*background-image: url(images/footer-background.png);*/
   background-size: cover;

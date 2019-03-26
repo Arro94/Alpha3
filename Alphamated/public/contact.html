@@ -46,12 +46,12 @@
         function checkEmailValidator() {
             document.getElementsByName("subButt").item(0).removeAttribute('disabled');
             let email = document.forms["subForm"]["txtEmail"].value.trim();
-            if (email.checkValidity() && email.length!==0) {
+            if (email.checkValidity() && email.length !== 0) {
                 submitButtonDisabled = false;
             } else {
                 submitButtonDisabled = true;
             }
-            document.getElementsByName("subButt").disabled=submitButtonDisabled;
+            document.getElementsByName("subButt").disabled = submitButtonDisabled;
         }
 
 
@@ -93,49 +93,87 @@
     </div>
 
     <main class="mdl-layout__content main">
-            <div class="mdl-grid portfolio-max-width">
-                <div class="mdl-layout-spacer"></div>
-
-                <div class="mdl-card mdl-shadow--2dp my-subscribe-card-size">
-                    <form name="subForm" id="subscriptionForm" method="POST" action="/api/emailList/add" autocomplete="off">
-                        <!--todo add code so you dont hard code address above. let env handle-->
-                        <div class="mdl-card__title mdl-color--primary">
-                            <h2 class="mdl-card__title-text mdl-color-text--white">Subscribe:</h2>
-                        </div>
-                        <div class="mdl-card__supporting-text">
-
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <label for="email" class="mdl-textfield__label">Email Address:</label>
-                                <input name="txtEmail" oninput="checkEmailValidator()" id="email" class="mdl-textfield__input"
-                                       type="email">
-                                <span class="mdl-textfield__error">Please enter a valid email address.</span>
-                            </div>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <label for="name" class="mdl-textfield__label">Name:</label>
-                                <input name="txtName" id="name" class="mdl-textfield__input" type="text">
-                            </div>
-
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-                            <button disabled type="submit" name="subButt" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__media">
                 </div>
-                <div class="mdl-layout-spacer"></div>
+
+                <div class="mdl-grid portfolio-copy">
+
+                    <!--todo -->
+
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Contact Information</h2>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col">
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding">
+                        <img src="/images/EvanDuignan.jpg" width="186px" height="420px">
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col mdl-card__supporting-text no-padding ">
+                        <p>
+                            Evan Duignan - CEO<br>
+                            EvanDuignan@alphamated.com<br>
+                            (XXX)XXX-XXXX<br>
+                            Sample Address <br>
+                            Columbus, OH 43202
+                        </p>
+
+                    </div>
+
+
+                    <!--todo -->
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+
+                    <div class="mdl-layout-spacer"></div>
+
+                    <div class="mdl-card mdl-shadow--2dp my-subscribe-card-size">
+                        <form name="subForm" id="subscriptionForm" method="POST" action="/api/emailList/add"
+                              autocomplete="off">
+                            <!--todo add code so you dont hard code address above. let env handle-->
+                            <div class="mdl-card__title mdl-color--primary">
+                                <h2 class="mdl-card__title-text mdl-color-text--white">Subscribe for updates:</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <label for="email" class="mdl-textfield__label">Email Address:</label>
+                                    <input name="txtEmail" oninput="checkEmailValidator()" id="email"
+                                           class="mdl-textfield__input"
+                                           type="email">
+                                    <span class="mdl-textfield__error">Please enter a valid email address.</span>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <label for="name" class="mdl-textfield__label">Name:</label>
+                                    <input name="txtName" id="name" class="mdl-textfield__input" type="text">
+                                </div>
+
+                            </div>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <button disabled type="submit" name="subButt"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <footer class="mdl-mini-footer">
-                <div class="mdl-mini-footer__left-section">
-                    <div class="mdl-logo">Alphamated</div>
-                </div>
-                <div class="mdl-mini-footer__right-section">
-                    <ul class="mdl-mini-footer__link-list">
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Privacy & Terms</a></li>
-                    </ul>
-                </div>
-            </footer>
+
+            <div class="mdl-layout-spacer"></div>
+        </div>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">Alphamated</div>
+            </div>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+            </div>
+        </footer>
     </main>
 </div>
 </body>
