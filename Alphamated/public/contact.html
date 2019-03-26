@@ -178,7 +178,23 @@
 </div>
 <script>
     const form = document.getElementById("subscriptionForm");
-    form.addEventListener("submit", e => e.preventDefault());
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        const xh = new XMLHttpRequest();
+        xh.onreadystatechange = function () {
+            if (xh.readyState == 4 && xh.status == 200) {
+                console.log("bitchin");
+            }
+        };
+
+        xh.open("POST", form.getAttribute("action"), true)
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xh.send(JSON.stringify({
+            email: form.email.value,
+            name: form.name.value
+        }));
+    });
 </script>
 </body>
 </html>
