@@ -187,7 +187,7 @@
             }
         };
 
-        xh.open("POST", form.getAttribute("action"), true)
+        xh.open("POST", "https://alphamated.com:3000/api/emailList/add", true);
         xh.setRequestHeader('Content-Type', 'application/json');
 
         xh.send(JSON.stringify({
