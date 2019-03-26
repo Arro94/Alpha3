@@ -20,13 +20,8 @@ router.post('/add', (req, res, next) => {
         fs.appendFileSync(path, entry);
         console.info('  Added ' + name + ' (' + email + ') ' + ' to the distribution list');
 
-        res.sendStatus(200);
+        res.sendStatus(204);
     }
-});
-
-router.get('/add', (req, res, next) => {
-    res.redirect('http://alphamated.com/contact.html');
-   // res.sendStatus(204);
 });
 
 module.exports = router;
