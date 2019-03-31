@@ -4,15 +4,17 @@ body {
 
 .tempSetHeight
 {
-    height: 80% !important;
+    height: 760px !important;
 }
+
 .container {
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+    /*position: relative;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    /*width: 80%;*/
     overflow: scroll;
+    /*height: 80%;*/
 }
 
 .pic-container {
@@ -41,9 +43,10 @@ body {
 }
 
 .wrapper.open {
-    width: 260%;
-    height: 30%;
-    top: 15%;
+    max-width: 850px;
+    width: 80%;
+    height: 60%;
+    top: 59%;
     left: 50%;
     position: fixed;
     transition: transform 375ms, width 375ms, height 275ms 100ms;
@@ -88,7 +91,7 @@ body {
 }
 
 .text {
-    padding: 30px;
+    padding: 20px;
 }
 
 .text .line {

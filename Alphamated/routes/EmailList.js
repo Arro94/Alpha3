@@ -5,8 +5,8 @@ const router = express.Router();
 const fs = require( 'fs' );
 
 router.post('/add', (req, res, next) => {
-    const name = req.body.txtName;
-    const email = req.body.txtEmail;
+    const name = req.body.name;
+    const email = req.body.email;
     if(!name || !email) {
         res.sendStatus(400);
         console.info('  Bad request - Request does not contain name or email');

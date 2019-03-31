@@ -6,59 +6,7 @@
     <style>
         @import '/stylesheets/style.css';
     </style>
-    <script>
-        function hideMenu() {
-            document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible');
-            document.getElementsByClassName('mdl-layout__obfuscator')[0].classList.remove('is-visible');
-        }
-    </script>
-    <script>
-        // function submit(email,name) {
-        //     // handle email subscription
-        //     var Url = "http://localhost:3000/emailList/add";
-        //     var xhr = new XMLHttpRequest();
-        //
-        //     xhr.open('POST', Url, true);
-        //     xhr.
-        //     xhr.send(email,name);
-        //     xhr.onreadystatechange = processRequest;
-        //     function processRequest(e) {
-        //         if (xhr.readyState == 4 && xhr.status == 200) {
-        //             var response1 = JSON.parse(xhr.responseText);
-        //             document.getElementById("origin").innerHTML = response1.origin;
-        //             document.getElementById("url").innerHTML = response1.url;
-        //         }
-        //     }
-        // }
-        var submitButtonDisabled = true;
 
-        // function submitSubscription() {
-        //     if(submitButtonDisabled = false) {
-        //         let email = document.forms["subForm"]["txtEmail"].value.trim();
-        //         let name = document.forms["subForm"]["txtName"].value.trim();
-        //         // this.isLoading = true;
-        //         submitButtonDisabled = true;
-        //         document.getElementsByName("subButt").disabled=submitButtonDisabled;
-        //         submit(email,name);
-        //     }
-        // }
-
-        function checkEmailValidator() {
-            document.getElementsByName("subButt").item(0).removeAttribute('disabled');
-            let email = document.forms["subForm"]["txtEmail"].value.trim();
-            if (email.checkValidity() && email.length !== 0) {
-                submitButtonDisabled = false;
-            } else {
-                submitButtonDisabled = true;
-            }
-            document.getElementsByName("subButt").disabled = submitButtonDisabled;
-        }
-
-
-    </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
 <div id="app" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -176,25 +124,100 @@
         </footer>
     </main>
 </div>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script>
+
+    function hideMenu() {
+        document.getElementsByClassName('mdl-layout__drawer')[0].classList.remove('is-visible');
+        document.getElementsByClassName('mdl-layout__obfuscator')[0].classList.remove('is-visible');
+    }
+
+    // function submit(email,name) {
+    //     // handle email subscription
+    //     var Url = "http://localhost:3000/emailList/add";
+    //     var xhr = new XMLHttpRequest();
+    //
+    //     xhr.open('POST', Url, true);
+    //     xhr.
+    //     xhr.send(email,name);
+    //     xhr.onreadystatechange = processRequest;
+    //     function processRequest(e) {
+    //         if (xhr.readyState == 4 && xhr.status == 200) {
+    //             var response1 = JSON.parse(xhr.responseText);
+    //             document.getElementById("origin").innerHTML = response1.origin;
+    //             document.getElementById("url").innerHTML = response1.url;
+    //         }
+    //     }
+    // }
+    var submitButtonDisabled = true;
+
+    // function submitSubscription() {
+    //     if(submitButtonDisabled = false) {
+    //         let email = document.forms["subForm"]["txtEmail"].value.trim();
+    //         let name = document.forms["subForm"]["txtName"].value.trim();
+    //         // this.isLoading = true;
+    //         submitButtonDisabled = true;
+    //         document.getElementsByName("subButt").disabled=submitButtonDisabled;
+    //         submit(email,name);
+    //     }
+    // }
+
+    function checkEmailValidator() {
+        document.getElementsByName("subButt").item(0).removeAttribute('disabled');
+        let btn = document.getElementsByName("subButt").item(0);
+        if (email.checkValidity() && email.value.trim().length !== 0) {
+            console.log("valid");
+            submitButtonDisabled = false;
+        } else {
+            console.log("invalid");
+            submitButtonDisabled = true;
+        }
+        if (submitButtonDisabled) btn.setAttribute('disabled','true');
+        else btn.removeAttribute('disabled');
+    }
+
+
+
+
     const form = document.getElementById("subscriptionForm");
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-        const xh = new XMLHttpRequest();
-        xh.onreadystatechange = function () {
-            if (xh.readyState == 4 && xh.status == 200) {
-                console.log("bitchin");
-            }
-        };
 
-        xh.open("POST", "https://alphamated.com:3000/api/emailList/add", true);
-        xh.setRequestHeader('Content-Type', 'application/json');
 
-        xh.send(JSON.stringify({
-            email: form.email.value,
-            name: form.name.value
-        }));
-    });
+
+    if (form.addEventListener) {
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            const xh = new XMLHttpRequest();
+            xh.onreadystatechange = function () {
+                if (xh.readyState == 4 && xh.status == 200) {
+                    console.log("bitchin");
+                }
+            };
+            xh.open("POST", "http://localhost:3000/api/emailList/add", true);
+            xh.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xh.send(JSON.stringify({
+                email: form.email.value,
+                name: form.name.value
+            }));
+        });
+    } else if (form.attachEvent){
+        form.attachEvent('onsubmit', function(event) {
+            event.preventDefault();
+            const xh = new XMLHttpRequest();
+            xh.onreadystatechange = function () {
+                if (xh.readyState == 4 && xh.status == 200) {
+                    console.log("bitchin");
+                }
+            };
+            xh.open("POST", "http://localhost:3000/api/emailList/add", true);
+            xh.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xh.send(JSON.stringify({
+                email: form.email.value,
+                name: form.name.value
+            }));
+        });
+    }
 </script>
 </body>
 </html>
