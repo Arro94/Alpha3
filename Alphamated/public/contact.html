@@ -5,6 +5,7 @@
     <title>Alphamated</title>
     <style>
         @import '/stylesheets/style.css';
+        @import 'stylesheets/socialMedia.css';
     </style>
 
 </head>
@@ -70,9 +71,9 @@
 
                     <!--todo -->
 
-                    <div class="mdl-cell mdl-cell--6-col">
+                    <div class="mdl-cell mdl-cell--12-col">
 
-                        <div class="mdl-layout-spacer"></div>
+                        <!--<div class="mdl-layout-spacer"></div>-->
 
                         <div class="mdl-card mdl-shadow--2dp my-subscribe-card-size">
                             <form name="subForm" id="subscriptionForm" method="POST" action="/api/emailList/add"
@@ -92,7 +93,8 @@
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <label for="name" class="mdl-textfield__label">Name:</label>
-                                        <input disabled name="txtName" id="name" class="mdl-textfield__input" type="text">
+                                        <input disabled name="txtName" id="name" class="mdl-textfield__input"
+                                               type="text">
                                     </div>
 
                                 </div>
@@ -104,6 +106,11 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <a href="https://www.linkedin.com/in/evan-duignan-125975b6/" class="fa fa-linkedin" target="_blank"></a>
+                        <a href="https://www.instagram.com/alphamated/" class="fa fa-instagram" target="_blank"></a>
+                        <a href="https://www.facebook.com/Alphamated/" class="fa fa-facebook" target="_blank"></a>
                     </div>
                 </div>
             </div>
@@ -125,6 +132,7 @@
 </div>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script>
 
