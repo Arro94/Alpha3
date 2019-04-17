@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138569722-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138569722-1');
+    </script>
+
     <meta charset="UTF-8">
     <title>Alphamated</title>
     <style>
@@ -189,7 +199,7 @@
     const form = document.getElementById("subscriptionForm");
 
 
-    if (form.addEventListener) {
+    if (form.addEventListener) { // addEventListener for chrome
         form.addEventListener("submit", function (event) {
             event.preventDefault();
             const xh = new XMLHttpRequest();
@@ -205,7 +215,7 @@
                 name: form.name.value
             }));
         });
-    } else if (form.attachEvent) {
+    } else if (form.attachEvent) { // attachEvent for IE
         form.attachEvent('onsubmit', function (event) {
             event.preventDefault();
             const xh = new XMLHttpRequest();
