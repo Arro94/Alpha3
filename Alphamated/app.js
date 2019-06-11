@@ -2,11 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 const router = require('./routes/index');
 const app = express();
+const winston = require('winston');
+require('./logging')();
 
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -33,8 +34,9 @@ app.use(function(err, req, res, next) {
     message: err.message,
        error: err
   });
-    console.error(err.message);
+    winston.error(err.message);
 
 });
 
 module.exports = app;
+
